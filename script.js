@@ -22,14 +22,28 @@ generateBtn.addEventListener("click", writePassword);
 
 
 
-function getPrompt(){
-  characterLength = parseInt(prompt("How many characters would you like your password to be? It must be between 8 and 128 characters."));
+function getPrompts(){
+  passwordLength = parseInt(prompt("How many characters would you like your password to be? It must be between 8 and 128 characters."));
 
-  if(isNaN(characterLength) || characterLength < 8 || characterLength > 128){
-    alert("Your password must be between 8 and 128 characters long. Try again.");
+  if(isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128){
+    alert("Your password must be between 8 and 128 characters long. Please try again.");
+    return false;
   }
 
-  if(){
-    
+  if (confirm("Would you like lower case letters in your Password?")){
+    choiceArr = choiceArr.concat(lowerArr);
   }
+
+  if (confirm("Would you like upper case letters in your Password?")){
+    choiceArr = choiceArr.concat(upperArr);
+  }
+
+  if (confirm("Would you like numbers in your Password?")){
+    choiceArr = choiceArr.concat(numberArr);
+  }
+
+  if (confirm("Would you like special characters in your Password?")){
+    choiceArr = choiceArr.concat(characterArr);
+  }
+  return true;
 }
